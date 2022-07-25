@@ -9,9 +9,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener {
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         bar.addTab(tab2);
 
         tab3 = bar.newTab();
-        tab3.setText("방성환");
+        tab3.setText("방성훈");
         tab3.setTabListener(this);
         bar.addTab(tab3);
     }
@@ -82,14 +84,21 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             layout.setOrientation(LinearLayout.VERTICAL);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             layout.setLayoutParams(params);
+            layout.setGravity(Gravity.CENTER);
+            ImageView imgV = new ImageView(super.getActivity());
+            layout.addView(imgV);
+
             if(tabName.equals("박하나")){
                 layout.setBackgroundColor(Color.MAGENTA);
+                imgV.setImageResource(R.drawable.dog1);
             }
             if(tabName.equals("임수향")){
                 layout.setBackgroundColor(Color.YELLOW);
+                imgV.setImageResource(R.drawable.dog2);
             }
-            if(tabName.equals("방성환")){
+            if(tabName.equals("방성훈")){
                 layout.setBackgroundColor(Color.BLUE);
+                imgV.setImageResource(R.drawable.dog3);
             }
             return layout;
         }
